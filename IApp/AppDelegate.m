@@ -32,7 +32,7 @@
     RecommendViewController *recommentController = [[RecommendViewController alloc] init];
     
     //往tabController中添加导航页面
-    [tabController setViewControllers:@[newsController,videController,recommentController]];
+    [tabController setViewControllers:@[videController, newsController, recommentController]];
     
     //指定UINavigationController为rootViewController，并且指定viewController为UITabBarController的第一个视图控制器
     UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:tabController];
