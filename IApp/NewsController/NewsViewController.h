@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface NewsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end
 

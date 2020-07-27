@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "NewsController/NewsViewController.h"
 #import "VideoController/VideoController.h"
 #import "RecommendController/RecommendViewController.h"
+#import "MineViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,17 +26,21 @@
     //定义UITabBar
     UITabBarController * tabController = [[UITabBarController alloc] init];
     //新闻页面、初始页面
-    ViewController * newsController = [[ViewController alloc] init];
+    NewsViewController * newsController = [[NewsViewController alloc] init];
     //视屏页面
     VideoController * videController = [[VideoController alloc] init];
     //推荐页面
     RecommendViewController *recommentController = [[RecommendViewController alloc] init];
+    //个人信息界面
+    MineViewController *mineController = [[MineViewController alloc] init];
+    
     
     //往tabController中添加导航页面
-    [tabController setViewControllers:@[videController, newsController, recommentController]];
+    [tabController setViewControllers:@[videController, newsController, recommentController, mineController]];
     
     //指定UINavigationController为rootViewController，并且指定viewController为UITabBarController的第一个视图控制器
     UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:tabController];
+    
     //指定初始rootViewController为navController，
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];

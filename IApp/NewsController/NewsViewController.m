@@ -6,20 +6,20 @@
 //  Copyright © 2020年 codeam. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "NewsViewController.h"
 #import "View/NormalTableViewCell.h"
 #import "Controller/DetailViewController.h"
 #import "View/DeleteButtonDelegateView.h"
 #import "Model/LIstLoad.h"
 #import "Model/ListItem.h"
 
-@interface ViewController ()<GTNormalTableViewCellDelegate>
+@interface NewsViewController ()<GTNormalTableViewCellDelegate>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
 @property (nonatomic, strong, readwrite) NSArray *dataArray;
 @property (nonatomic, strong, readwrite) LIstLoad *listLoader;
 @end
 
-@implementation ViewController
+@implementation NewsViewController
 # pragma mark - 声明周期方法
 - (instancetype)init {
     self = [super init];
@@ -33,27 +33,27 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // init subView
+    [self configSubView];
+    
+    // 初始化dataArray
+    [self modelDidLoad];
+}
+
+# pragma mark - initSubView
+-(void)configSubView {
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
-    
-    //Initiated HTTP request get json data
-    self.listLoader = [[LIstLoad alloc] init];
-    __weak typeof(self)wself = self;
-    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<ListItem *> * _Nonnull dataArray) {
-        __strong typeof(wself) strongSelf = wself;
-        strongSelf.dataArray = dataArray;
-        [strongSelf.tableView reloadData];
-    }];
 }
+
 # pragma mark - dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSInteger num = (unsigned long)_dataArray.count;
     return num;
 }
 
-//@Required UITableViewDataSource必须实现的方法
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     if (! cell) {
@@ -79,5 +79,17 @@
 # pragma mark - deleteButton delegate
 - (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton {
     
+}
+
+# pragma mark - init model
+- (void)modelDidLoad {
+    //Initiated HTTP request get json data
+    self.listLoader = [[LIstLoad alloc] init];
+    __weak typeof(self)wself = self;
+    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<ListItem *> * _Nonnull dataArray) {
+        __strong typeof(wself) strongSelf = wself;
+        strongSelf.dataArray = dataArray;
+        [strongSelf.tableView reloadData];
+    }];
 }
 @end

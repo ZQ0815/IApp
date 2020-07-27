@@ -11,7 +11,7 @@
 		0092199F24B74E9600B905E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0092199E24B74E9600B905E5 /* Assets.xcassets */; };
 		009219A224B74E9600B905E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009219A024B74E9600B905E5 /* LaunchScreen.storyboard */; };
 		009219A524B74E9600B905E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 009219A424B74E9600B905E5 /* main.m */; };
-		009219B024B74F4200B905E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009219AF24B74F4200B905E5 /* ViewController.m */; };
+		009219B024B74F4200B905E5 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009219AF24B74F4200B905E5 /* NewsViewController.m */; };
 		009219B524B74FEB00B905E5 /* NormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009219B424B74FEB00B905E5 /* NormalTableViewCell.m */; };
 		009219B824B7511B00B905E5 /* DeleteButtonDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 009219B724B7511B00B905E5 /* DeleteButtonDelegateView.m */; };
 		009219BC24B7517C00B905E5 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 009219BB24B7517C00B905E5 /* ListItem.m */; };
@@ -30,6 +30,8 @@
 		009219DD24B7535100B905E5 /* video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009219D324B7535000B905E5 /* video@2x.png */; };
 		009219DE24B7535100B905E5 /* video_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009219D424B7535000B905E5 /* video_selected@2x.png */; };
 		07AE1D59E9030850602A5FAE /* libPods-IApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C9E2291D539C692DF88C91 /* libPods-IApp.a */; };
+		F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062370E24CBB97E00F4B29C /* MineViewController.m */; };
+		F062371224CE81F500F4B29C /* SetNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062371124CE81F500F4B29C /* SetNickNameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +42,8 @@
 		009219A124B74E9600B905E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		009219A324B74E9600B905E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009219A424B74E9600B905E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		009219AE24B74F4200B905E5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		009219AF24B74F4200B905E5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		009219AE24B74F4200B905E5 /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		009219AF24B74F4200B905E5 /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		009219B324B74FEB00B905E5 /* NormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalTableViewCell.h; sourceTree = "<group>"; };
 		009219B424B74FEB00B905E5 /* NormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalTableViewCell.m; sourceTree = "<group>"; };
 		009219B624B7511B00B905E5 /* DeleteButtonDelegateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteButtonDelegateView.h; sourceTree = "<group>"; };
@@ -69,6 +71,10 @@
 		18C9E2291D539C692DF88C91 /* libPods-IApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D3458539C1D3EF392C0519 /* Pods-IApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IApp.release.xcconfig"; path = "Target Support Files/Pods-IApp/Pods-IApp.release.xcconfig"; sourceTree = "<group>"; };
 		9C17EC9D97CD561F1A0CF9E2 /* Pods-IApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IApp.debug.xcconfig"; path = "Target Support Files/Pods-IApp/Pods-IApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F062370D24CBB97E00F4B29C /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		F062370E24CBB97E00F4B29C /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		F062371024CE81F500F4B29C /* SetNickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetNickNameViewController.h; sourceTree = "<group>"; };
+		F062371124CE81F500F4B29C /* SetNickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetNickNameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 		0092199424B74E9500B905E5 /* IApp */ = {
 			isa = PBXGroup;
 			children = (
+				F062370C24CBB95D00F4B29C /* MineController */,
 				009219CA24B7535000B905E5 /* icons */,
 				009219AD24B74EFB00B905E5 /* RecommendController */,
 				009219AC24B74EF000B905E5 /* VideoController */,
@@ -124,8 +131,8 @@
 				009219DF24B753A700B905E5 /* Controller */,
 				009219B924B7515E00B905E5 /* Model */,
 				009219B224B74F8700B905E5 /* View */,
-				009219AE24B74F4200B905E5 /* ViewController.h */,
-				009219AF24B74F4200B905E5 /* ViewController.m */,
+				009219AE24B74F4200B905E5 /* NewsViewController.h */,
+				009219AF24B74F4200B905E5 /* NewsViewController.m */,
 			);
 			name = NewsController;
 			path = IApp/NewsController;
@@ -215,6 +222,17 @@
 				18C9E2291D539C692DF88C91 /* libPods-IApp.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F062370C24CBB95D00F4B29C /* MineController */ = {
+			isa = PBXGroup;
+			children = (
+				F062370D24CBB97E00F4B29C /* MineViewController.h */,
+				F062370E24CBB97E00F4B29C /* MineViewController.m */,
+				F062371024CE81F500F4B29C /* SetNickNameViewController.h */,
+				F062371124CE81F500F4B29C /* SetNickNameViewController.m */,
+			);
+			path = MineController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,8 +341,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				009219B524B74FEB00B905E5 /* NormalTableViewCell.m in Sources */,
-				009219B024B74F4200B905E5 /* ViewController.m in Sources */,
+				009219B024B74F4200B905E5 /* NewsViewController.m in Sources */,
 				009219BC24B7517C00B905E5 /* ListItem.m in Sources */,
+				F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */,
 				009219C324B7522A00B905E5 /* DetailViewController.m in Sources */,
 				009219A524B74E9600B905E5 /* main.m in Sources */,
 				0092199724B74E9500B905E5 /* AppDelegate.m in Sources */,
@@ -332,6 +351,7 @@
 				009219BF24B751C400B905E5 /* LIstLoad.m in Sources */,
 				009219C624B752A700B905E5 /* RecommendViewController.m in Sources */,
 				009219C924B752EF00B905E5 /* VideoController.m in Sources */,
+				F062371224CE81F500F4B29C /* SetNickNameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
