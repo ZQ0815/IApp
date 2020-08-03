@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "SetNickNameViewController.h"
+#import "UserModel.h"
 
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UILabel *showInfoLabel;
 @property (nonatomic, strong) UIButton *finishedButton;
+@property (nonatomic, strong) UserModel *userModel;
 
 @end
 
@@ -42,9 +44,11 @@
     _contentView.backgroundColor = [UIColor whiteColor];
     self.view = _contentView;
     
-    _showInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height, SCREEN_WIDTH, 100)];
-    _showInfoLabel.text = @"你还有2次修改昵称的机会";
+    _showInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height, 0, 0)];
+    _showInfoLabel.numberOfLines = 0;
+    _showInfoLabel.font = [UIFont systemFontOfSize:10];
     _showInfoLabel.backgroundColor = [UIColor grayColor];
+    _showInfoLabel.text = @"你还有2次修改昵称的机会";
     [_contentView addSubview:_showInfoLabel];
     
     _finishedButton = [[UIButton alloc] initWithFrame:CGRectMake(0, _showInfoLabel.frame.origin.y + 100, 50, 25)];
@@ -56,9 +60,11 @@
 }
 
 - (void)didFinishedButton{
-    SetNickNameViewController *setNickNameVC = [[SetNickNameViewController alloc] init];
-    setNickNameVC.delegate = self;
-    [self.navigationController pushViewController:setNickNameVC animated:YES];
+//    SetNickNameViewController *setNickNameVC = [[SetNickNameViewController alloc] init];
+//    setNickNameVC.delegate = self;
+//    [self.navigationController pushViewController:setNickNameVC animated:YES];
+    _userModel = [[UserModel alloc] init];
+    [_userModel loadUserDatas];
 }
 
 - (void)changedController:(SetNickNameViewController *)setNickNameVC didInputed: (NSString *) string {

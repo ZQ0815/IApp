@@ -33,10 +33,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // init subView
     [self configSubView];
-    
-    // 初始化dataArray
     [self modelDidLoad];
 }
 

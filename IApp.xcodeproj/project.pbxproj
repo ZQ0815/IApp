@@ -30,6 +30,7 @@
 		009219DD24B7535100B905E5 /* video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009219D324B7535000B905E5 /* video@2x.png */; };
 		009219DE24B7535100B905E5 /* video_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009219D424B7535000B905E5 /* video_selected@2x.png */; };
 		07AE1D59E9030850602A5FAE /* libPods-IApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C9E2291D539C692DF88C91 /* libPods-IApp.a */; };
+		F055A2DE24D849290068C0C0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F055A2DD24D849290068C0C0 /* UserModel.m */; };
 		F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062370E24CBB97E00F4B29C /* MineViewController.m */; };
 		F062371224CE81F500F4B29C /* SetNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062371124CE81F500F4B29C /* SetNickNameViewController.m */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,8 @@
 		18C9E2291D539C692DF88C91 /* libPods-IApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D3458539C1D3EF392C0519 /* Pods-IApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IApp.release.xcconfig"; path = "Target Support Files/Pods-IApp/Pods-IApp.release.xcconfig"; sourceTree = "<group>"; };
 		9C17EC9D97CD561F1A0CF9E2 /* Pods-IApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IApp.debug.xcconfig"; path = "Target Support Files/Pods-IApp/Pods-IApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F055A2DC24D849290068C0C0 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		F055A2DD24D849290068C0C0 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		F062370D24CBB97E00F4B29C /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F062370E24CBB97E00F4B29C /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F062371024CE81F500F4B29C /* SetNickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetNickNameViewController.h; sourceTree = "<group>"; };
@@ -224,9 +227,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F055A2DB24D849000068C0C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F055A2DC24D849290068C0C0 /* UserModel.h */,
+				F055A2DD24D849290068C0C0 /* UserModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F062370C24CBB95D00F4B29C /* MineController */ = {
 			isa = PBXGroup;
 			children = (
+				F055A2DB24D849000068C0C0 /* Model */,
 				F062370D24CBB97E00F4B29C /* MineViewController.h */,
 				F062370E24CBB97E00F4B29C /* MineViewController.m */,
 				F062371024CE81F500F4B29C /* SetNickNameViewController.h */,
@@ -348,6 +361,7 @@
 				009219A524B74E9600B905E5 /* main.m in Sources */,
 				0092199724B74E9500B905E5 /* AppDelegate.m in Sources */,
 				009219B824B7511B00B905E5 /* DeleteButtonDelegateView.m in Sources */,
+				F055A2DE24D849290068C0C0 /* UserModel.m in Sources */,
 				009219BF24B751C400B905E5 /* LIstLoad.m in Sources */,
 				009219C624B752A700B905E5 /* RecommendViewController.m in Sources */,
 				009219C924B752EF00B905E5 /* VideoController.m in Sources */,

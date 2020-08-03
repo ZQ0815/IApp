@@ -31,31 +31,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height)];
-    //添加webView视图
-    [self.view addSubview:({
-        self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height)];
-        self.webView;
-    })];
-    //添加进度条UIProgressView
-    [self.view addSubview:({
-        self.processView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 10)];
-        self.processView;
-    })];
-    //webView视图中加载指定url的内容
-    [self.webView loadRequest:({
-        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.articleUrl]];
-        request;
-    })];
-    //webView添加观察者(自己)，用于观察加载进度属性estimatedProgress，并且实现进度条的现实
+    [self.view addSubview:[self webView]];
+    [self.view addSubview:[self processView]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.articleUrl]]];
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     
 }
+# pragma mark - getted
+- (WKWebView *)webView {
+    if (!_webView) {
+        _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    return _webView;
+}
 
+- (UIProgressView *)processView {
+    if (!_processView) {
+        self.processView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 10)];
+    }
+    return _processView;
+}
+
+
+# pragma mark - delegate
+
+/// webView加载完成后的回调函数
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     decisionHandler(WKNavigationActionPolicyAllow);
 }
 
+
+/// 监听webView加载进度的回调函数
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     self.processView.progress = self.webView.estimatedProgress;
 }

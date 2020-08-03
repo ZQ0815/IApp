@@ -11,6 +11,7 @@
 #import "VideoController/VideoController.h"
 #import "RecommendController/RecommendViewController.h"
 #import "MineViewController.h"
+#import <objc/runtime.h>
 
 @interface AppDelegate ()
 
@@ -33,7 +34,6 @@
     RecommendViewController *recommentController = [[RecommendViewController alloc] init];
     //个人信息界面
     MineViewController *mineController = [[MineViewController alloc] init];
-    
     
     //往tabController中添加导航页面
     [tabController setViewControllers:@[videController, newsController, recommentController, mineController]];
