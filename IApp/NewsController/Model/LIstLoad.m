@@ -13,32 +13,77 @@
 @implementation LIstLoad
 
 - (void)loadListDataWithFinishBlock:(ListLoaderFinishBlock)finishBlock {
-    NSString *urlString = @"https://static001.geekbang.org/univer/classes/ios_dev/lession/45/toutiao.json";
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLSession *session = [NSURLSession sharedSession];
+    // 加载数据之前先去读取本地文件中的数据，在弱网的情况下优化客户的体验
+    NSArray<ListItem *> *listdata = [self readDataFromLocal];
+    if (listdata) {
+        finishBlock(YES, listdata);
+    }
+    
+    // 防止循环引用
     __weak typeof(self) weakSelf = self;
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
+    NSString *url1 = @"https://static001.geekbang.org/univer/classes/ios_dev/lession/45/toutiao.json";
+    AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
+    [manager GET:url1 parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        // 请求成功显示的内容
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        
-        //to convert binary data as JSON data
-        NSError *jsonError;
-        id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-        //typecasting twice to convert json data as NSArray
-        NSArray *dataArray =  [((NSDictionary *)[((NSDictionary *)jsonObj) objectForKey:@"result"]) objectForKey:@"data"];
+        NSArray *dataArray = [[responseObject objectForKey:@"result"] objectForKey:@"data"];
         NSMutableArray *listItemArray = @[].mutableCopy;
         for (NSDictionary *info in dataArray) {
             ListItem *listItem = [[ListItem alloc] init];
             [listItem configWithDictionary:info];
             [listItemArray addObject:listItem];
         }
-        //block is useful
+        
+        // 序列化对象数组成二进制数据保存在文件中
+        [strongSelf archiveListDataWithArray:listItemArray.copy];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (finishBlock) {
-                finishBlock(error == nil, listItemArray.copy);
+                finishBlock(YES, listItemArray.copy);
             }
         });
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"ask failed.");
     }];
-    [dataTask resume];
 }
+
+- (NSArray<ListItem *> *)readDataFromLocal{
+    // 获取文件路径
+    NSString *homePath = NSHomeDirectory();
+    NSString *path = [homePath stringByAppendingPathComponent:@"Library/Caches/Data"];
+    NSString *filePath = [path stringByAppendingPathComponent:@"list"];
+    
+    // 读取文件内容
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSData *readListData = [fileManager contentsAtPath:filePath];
+    
+    // 反序列化文件
+    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class],[ListItem class], nil]  fromData:readListData error:nil];
+    
+    // 判断对象类别并强转成对应的类型
+    if ([unarchiveObj isKindOfClass:[NSArray class]] && [unarchiveObj count] > 0) {
+        return (NSArray<ListItem *> *)unarchiveObj;
+    }
+    return nil;;
+}
+
+- (void)archiveListDataWithArray:(NSArray<ListItem *> *)array {
+    NSString *homePath = NSHomeDirectory();
+    NSString *path = [homePath stringByAppendingPathComponent:@"Library/Caches/Data"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *creatError;
+    // 创建文件夹
+    [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&creatError];
+    // 创建文件
+    NSString *filePath = [path stringByAppendingPathComponent:@"list"];
+    // 将传进来的对象数组，序列化成为二进制文件
+    NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:array requiringSecureCoding:YES error:nil];
+    // 将文件保存在沙盒指定的文件夹中
+    [fileManager createFileAtPath:filePath contents:listData attributes:nil];
+}
+
 
 @end
