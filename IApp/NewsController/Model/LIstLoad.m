@@ -8,6 +8,7 @@
 
 #import "LIstLoad.h"
 #import <AFNetworking/AFNetworking.h>
+#import <YYModel/YYModel.h>
 #import "ListItem.h"
 
 @implementation LIstLoad
@@ -23,24 +24,18 @@
     __weak typeof(self) weakSelf = self;
     NSString *url1 = @"https://static001.geekbang.org/univer/classes/ios_dev/lession/45/toutiao.json";
     AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
-    [manager GET:url1 parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:url1 parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        // 请求成功显示的内容
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        NSArray *dataArray = [[responseObject objectForKey:@"result"] objectForKey:@"data"];
-        NSMutableArray *listItemArray = @[].mutableCopy;
-        for (NSDictionary *info in dataArray) {
-            ListItem *listItem = [[ListItem alloc] init];
-            [listItem configWithDictionary:info];
-            [listItemArray addObject:listItem];
-        }
+        // YYModel将请求数据封装称数组结构
+        NSArray *newsModels = [NSArray yy_modelArrayWithClass:ListItem.class json:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
         
         // 序列化对象数组成二进制数据保存在文件中
-        [strongSelf archiveListDataWithArray:listItemArray.copy];
+        [strongSelf archiveListDataWithArray:newsModels];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (finishBlock) {
-                finishBlock(YES, listItemArray.copy);
+                finishBlock(YES, newsModels);
             }
         });
         

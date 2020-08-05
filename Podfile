@@ -4,6 +4,5 @@ platform :ios, '12.0'
 target 'IApp' do
   	pod 'AFNetworking'
 	pod 'SDWebImage'
-#	pod 'CocoaLumberjack'
-#	pod 'IGListKit'
+	pod 'YYModel'
 end

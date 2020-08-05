@@ -10,6 +10,17 @@
 
 @implementation ListItem
 
+//返回一个 Dict，将 Model 属性名对映射到 JSON 的 Key。
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"category" : @"category",
+             @"picUrl" : @"thumbnail_pic_s",
+             @"uniqueKey" : @"uniquekey",
+             @"title" : @"title",
+             @"date" : @"date",
+             @"authorName" : @"author_name",
+             @"articleUrl" : @"url"};
+}
+
 - (void)configWithDictionary:(NSDictionary *)dictionary {
     self.category = [dictionary objectForKey:@"category"];
     self.picUrl = [dictionary objectForKey:@"thumbnail_pic_s"];

@@ -80,8 +80,15 @@
     
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
-    self.rightImageView.image = image;
+    dispatch_queue_global_t imageDownLoadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_queue_main_t mainQueue =  dispatch_get_main_queue();
+    
+    dispatch_async(imageDownLoadQueue, ^{
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+        dispatch_async(mainQueue, ^{
+            self.rightImageView.image = image;
+        });
+    });
 }
 
 -(void)deleteButtonClick{
