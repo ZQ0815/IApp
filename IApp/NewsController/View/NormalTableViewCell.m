@@ -8,6 +8,7 @@
 
 #import "NormalTableViewCell.h"
 #import "ListItem.h"
+#import <SDWebImage.h>
 
 @interface NormalTableViewCell ()
 
@@ -89,6 +90,10 @@
             self.rightImageView.image = image;
         });
     });
+}
+
+- (void)updateTitleColor {
+    self.titleLabel.textColor = [UIColor grayColor];
 }
 
 -(void)deleteButtonClick{

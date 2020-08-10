@@ -67,7 +67,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //点击对应新闻后push一个请求指定网络URL的WebView
+    [(NormalTableViewCell *)[tableView cellForRowAtIndexPath:indexPath] updateTitleColor];// 没有用，一刷新就没了
     ListItem *item = [self.dataArray objectAtIndex:indexPath.row];
     DetailViewController * controller = [[DetailViewController alloc] initWithUrlString:item.articleUrl];
     [self.navigationController pushViewController:controller animated:YES];

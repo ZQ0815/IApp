@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, readwrite) id<GTNormalTableViewCellDelegate> delegate;
 
 - (void)layoutTableViewCellWithItem:(ListItem *)item;
+- (void)updateTitleColor;
 @end
 
 NS_ASSUME_NONNULL_END
