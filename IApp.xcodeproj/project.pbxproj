@@ -31,6 +31,10 @@
 		009219DE24B7535100B905E5 /* video_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009219D424B7535000B905E5 /* video_selected@2x.png */; };
 		07AE1D59E9030850602A5FAE /* libPods-IApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C9E2291D539C692DF88C91 /* libPods-IApp.a */; };
 		F055A2DE24D849290068C0C0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F055A2DD24D849290068C0C0 /* UserModel.m */; };
+		F05D3A3624E1A0A7003FBBE9 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F05D3A3524E1A0A7003FBBE9 /* GTVideoPlayer.m */; };
+		F05D3A3924E1A1BB003FBBE9 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05D3A3824E1A1BB003FBBE9 /* GTVideoCoverView.m */; };
+		F05D4C1424E2D6AD003FBBE9 /* player.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F05D4C1224E2D6AD003FBBE9 /* player.jpeg */; };
+		F05D4C1524E2D6AD003FBBE9 /* fengmian.png in Resources */ = {isa = PBXBuildFile; fileRef = F05D4C1324E2D6AD003FBBE9 /* fengmian.png */; };
 		F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062370E24CBB97E00F4B29C /* MineViewController.m */; };
 		F062371224CE81F500F4B29C /* SetNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062371124CE81F500F4B29C /* SetNickNameViewController.m */; };
 /* End PBXBuildFile section */
@@ -74,6 +78,12 @@
 		9C17EC9D97CD561F1A0CF9E2 /* Pods-IApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IApp.debug.xcconfig"; path = "Target Support Files/Pods-IApp/Pods-IApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F055A2DC24D849290068C0C0 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		F055A2DD24D849290068C0C0 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		F05D3A3424E1A0A7003FBBE9 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
+		F05D3A3524E1A0A7003FBBE9 /* GTVideoPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoPlayer.m; sourceTree = "<group>"; };
+		F05D3A3724E1A1BB003FBBE9 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
+		F05D3A3824E1A1BB003FBBE9 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
+		F05D4C1224E2D6AD003FBBE9 /* player.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = player.jpeg; sourceTree = "<group>"; };
+		F05D4C1324E2D6AD003FBBE9 /* fengmian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fengmian.png; sourceTree = "<group>"; };
 		F062370D24CBB97E00F4B29C /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F062370E24CBB97E00F4B29C /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F062371024CE81F500F4B29C /* SetNickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetNickNameViewController.h; sourceTree = "<group>"; };
@@ -146,6 +156,10 @@
 			children = (
 				009219C724B752EF00B905E5 /* VideoController.h */,
 				009219C824B752EF00B905E5 /* VideoController.m */,
+				F05D3A3424E1A0A7003FBBE9 /* GTVideoPlayer.h */,
+				F05D3A3524E1A0A7003FBBE9 /* GTVideoPlayer.m */,
+				F05D3A3724E1A1BB003FBBE9 /* GTVideoCoverView.h */,
+				F05D3A3824E1A1BB003FBBE9 /* GTVideoCoverView.m */,
 			);
 			name = VideoController;
 			path = IApp/VideoController;
@@ -186,6 +200,8 @@
 		009219CA24B7535000B905E5 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				F05D4C1324E2D6AD003FBBE9 /* fengmian.png */,
+				F05D4C1224E2D6AD003FBBE9 /* player.jpeg */,
 				009219CB24B7535000B905E5 /* home@2x.png */,
 				009219CC24B7535000B905E5 /* home_selected@2x.png */,
 				009219CD24B7535000B905E5 /* icon.png */,
@@ -307,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				009219D924B7535000B905E5 /* like_selected@2x.png in Resources */,
+				F05D4C1424E2D6AD003FBBE9 /* player.jpeg in Resources */,
 				009219DD24B7535100B905E5 /* video@2x.png in Resources */,
 				009219A224B74E9600B905E5 /* LaunchScreen.storyboard in Resources */,
 				009219D724B7535000B905E5 /* icon.png in Resources */,
@@ -317,6 +334,7 @@
 				009219DB24B7535100B905E5 /* page_selected@2x.png in Resources */,
 				009219DA24B7535100B905E5 /* page@2x.png in Resources */,
 				009219D624B7535000B905E5 /* home_selected@2x.png in Resources */,
+				F05D4C1524E2D6AD003FBBE9 /* fengmian.png in Resources */,
 				009219D524B7535000B905E5 /* home@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,9 +375,11 @@
 				009219B024B74F4200B905E5 /* NewsViewController.m in Sources */,
 				009219BC24B7517C00B905E5 /* ListItem.m in Sources */,
 				F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */,
+				F05D3A3924E1A1BB003FBBE9 /* GTVideoCoverView.m in Sources */,
 				009219C324B7522A00B905E5 /* DetailViewController.m in Sources */,
 				009219A524B74E9600B905E5 /* main.m in Sources */,
 				0092199724B74E9500B905E5 /* AppDelegate.m in Sources */,
+				F05D3A3624E1A0A7003FBBE9 /* GTVideoPlayer.m in Sources */,
 				009219B824B7511B00B905E5 /* DeleteButtonDelegateView.m in Sources */,
 				F055A2DE24D849290068C0C0 /* UserModel.m in Sources */,
 				009219BF24B751C400B905E5 /* LIstLoad.m in Sources */,

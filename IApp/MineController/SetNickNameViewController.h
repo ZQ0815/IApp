@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^ChangedNameBlock)(NSString* name);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class SetNickNameViewController;
@@ -20,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SetNickNameViewController : UIViewController<UITextFieldDelegate>
 
+@property (nonatomic, copy) ChangedNameBlock myblock;
 @property (nonatomic, weak) id<ChangeNickNameViewControllerDelegate> delegate;
 
 @end

@@ -39,11 +39,19 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    
     if (self.delegate) {
         [self.delegate changedController:self didInputed:self.inputInfomation.text];
         [self.navigationController popViewControllerAnimated:YES];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//    NSDictionary *dic = @{@"changedName":self.inputInfomation.text};
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeNameByNotification" object:nil userInfo:dic];
+    
+    if (_myblock) {
+        _myblock(self.inputInfomation.text);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
     return YES;
 }
 

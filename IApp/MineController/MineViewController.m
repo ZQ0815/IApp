@@ -44,7 +44,11 @@
     _contentView.backgroundColor = [UIColor whiteColor];
     self.view = _contentView;
     
-    _showInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height, 0, 0)];
+    CGRect viewRect = CGRectMake(50, 200, 20, 20);
+    UIView *testView = [[UIView alloc] initWithFrame:viewRect];
+    testView.layer.backgroundColor = [UIColor blueColor].CGColor;
+    
+    _showInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height, self.view.frame.size.width, 30)];
     _showInfoLabel.numberOfLines = 0;
     _showInfoLabel.font = [UIFont systemFontOfSize:10];
     _showInfoLabel.backgroundColor = [UIColor grayColor];
@@ -57,19 +61,28 @@
     [_finishedButton setTitle:@"完成" forState:UIControlStateNormal];
     [_finishedButton addTarget:self action:@selector(didFinishedButton) forControlEvents:UIControlEventTouchUpInside];
     [_contentView addSubview:_finishedButton];
+    
+    [_contentView addSubview:testView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNickName:) name:@"changeNameByNotification" object:nil];
 }
 
 - (void)didFinishedButton{
-//    SetNickNameViewController *setNickNameVC = [[SetNickNameViewController alloc] init];
-//    setNickNameVC.delegate = self;
-//    [self.navigationController pushViewController:setNickNameVC animated:YES];
-    _userModel = [[UserModel alloc] init];
-    [_userModel loadUserDatas];
+    SetNickNameViewController *setNickNameVC = [[SetNickNameViewController alloc] init];
+    setNickNameVC.delegate = self;
+    __weak typeof(self) wself = self;
+    setNickNameVC.myblock = ^(NSString * name) {
+        __strong typeof(wself) strongSelf = wself;
+        strongSelf.showInfoLabel.text = name;
+    };
+    [self.navigationController pushViewController:setNickNameVC animated:YES];
 }
 
 - (void)changedController:(SetNickNameViewController *)setNickNameVC didInputed: (NSString *) string {
     self.showInfoLabel.text = string;
 }
 
+- (void)changeNickName:(NSNotification *)text {
+    self.showInfoLabel.text = text.userInfo[@"changedName"];
+}
 
 @end

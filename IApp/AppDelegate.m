@@ -10,7 +10,7 @@
 #import "NewsController/NewsViewController.h"
 #import "VideoController/VideoController.h"
 #import "RecommendController/RecommendViewController.h"
-#import "MineViewController.h"
+#import "MineController/MineViewController.h"
 #import <objc/runtime.h>
 
 @interface AppDelegate ()
