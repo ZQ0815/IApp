@@ -24,8 +24,8 @@
     __weak typeof(self) weakSelf = self;
     NSString *url1 = @"https://static001.geekbang.org/univer/classes/ios_dev/lession/45/toutiao.json";
     AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
-    [manager GET:url1 parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-
+    [manager GET:url1 parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         // YYModel将请求数据封装称数组结构
@@ -38,7 +38,6 @@
                 finishBlock(YES, newsModels);
             }
         });
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"ask failed.");
     }];
