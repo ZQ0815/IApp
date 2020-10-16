@@ -21,7 +21,8 @@
     //create sublayer
     _layerView = [[UIView alloc] initWithFrame:self.view.frame];
     _layerView.backgroundColor = [UIColor whiteColor];
-    [self setupCombinationPicture];
+    //[self setupCombinationPicture];
+    [self learnContentsCenter];
     self.view = _layerView;
 }
 
@@ -55,6 +56,15 @@
     bottom_right.contentsGravity = kCAGravityResizeAspect;
     bottom_right.contentsRect = CGRectMake(0.5, 1, 1, 1);
     [_layerView.layer addSublayer:bottom_right];
+}
+
+- (void)learnContentsCenter {
+    UIImage *image = [UIImage imageNamed:@"img_1"];
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(0, 100, 400, 400);
+    layer.contents = (__bridge id)image.CGImage;
+    layer.contentsCenter = CGRectMake(0.5, 0.5, 1, 1);
+    [_layerView.layer addSublayer:layer];
 }
 
 @end
