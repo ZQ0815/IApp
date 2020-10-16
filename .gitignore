@@ -2,7 +2,8 @@
 IApp.xcworkspace/xcuserdata/
 .AppleDouble
 .LSOverride
-
+IApp.xcodeproj/project.pbxproj
+IApp.xcworkspace/xcuserdata/
 ### myfile ###
 IApp/Pods/
 /Pods
