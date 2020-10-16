@@ -38,6 +38,7 @@
 		F05D4C1524E2D6AD003FBBE9 /* fengmian.png in Resources */ = {isa = PBXBuildFile; fileRef = F05D4C1324E2D6AD003FBBE9 /* fengmian.png */; };
 		F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062370E24CBB97E00F4B29C /* MineViewController.m */; };
 		F062371224CE81F500F4B29C /* SetNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062371124CE81F500F4B29C /* SetNickNameViewController.m */; };
+		F0EB65F2253941B8005F84DE /* img_1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F0EB65F1253941B8005F84DE /* img_1.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		F062370E24CBB97E00F4B29C /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F062371024CE81F500F4B29C /* SetNickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetNickNameViewController.h; sourceTree = "<group>"; };
 		F062371124CE81F500F4B29C /* SetNickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetNickNameViewController.m; sourceTree = "<group>"; };
+		F0EB65F1253941B8005F84DE /* img_1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img_1.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 		009219CA24B7535000B905E5 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				F0EB65F1253941B8005F84DE /* img_1.jpeg */,
 				F05D4C1324E2D6AD003FBBE9 /* fengmian.png */,
 				F05D4C1224E2D6AD003FBBE9 /* player.jpeg */,
 				009219CB24B7535000B905E5 /* home@2x.png */,
@@ -346,6 +349,7 @@
 				009219D824B7535000B905E5 /* like@2x.png in Resources */,
 				009219DB24B7535100B905E5 /* page_selected@2x.png in Resources */,
 				009219DA24B7535100B905E5 /* page@2x.png in Resources */,
+				F0EB65F2253941B8005F84DE /* img_1.jpeg in Resources */,
 				009219D624B7535000B905E5 /* home_selected@2x.png in Resources */,
 				F05D4C1524E2D6AD003FBBE9 /* fengmian.png in Resources */,
 				009219D524B7535000B905E5 /* home@2x.png in Resources */,

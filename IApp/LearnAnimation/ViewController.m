@@ -21,8 +21,12 @@
     //create sublayer
     self.view.backgroundColor = [UIColor whiteColor];
     CALayer *blueLayer = [CALayer layer];
-    blueLayer.frame = CGRectMake(100, 88, 100.0f, 100.0f);
-    blueLayer.backgroundColor = [UIColor blueColor].CGColor; //add it to our view
+    blueLayer.frame = CGRectMake(125, 388, 200.0f, 200.0f);
+    UIImage *image = [UIImage imageNamed:@"p_5"];
+    blueLayer.contents = (__bridge id)image.CGImage;
+    blueLayer.contentsGravity = kCAGravityCenter;
+    blueLayer.contentsScale = [UIScreen mainScreen].scale;
+    blueLayer.masksToBounds = YES;
     [self.view.layer addSublayer:blueLayer];
 }
 
