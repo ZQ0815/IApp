@@ -21,9 +21,27 @@
     //create sublayer
     _layerView = [[UIView alloc] initWithFrame:self.view.frame];
     _layerView.backgroundColor = [UIColor whiteColor];
+    [self learnCustomDrawing];
     //[self setupCombinationPicture];
-    [self learnContentsCenter];
+    //[self learnContentsCenter];
     self.view = _layerView;
+}
+
+- (void)learnCustomDrawing {
+    CALayer *blueLayer = [CALayer layer];
+    blueLayer.frame = CGRectMake(50.0f, 100, 100.0f, 100.0f);
+    blueLayer.backgroundColor = [UIColor blueColor].CGColor;
+    blueLayer.delegate = self;
+    blueLayer.contentsScale = [UIScreen mainScreen].scale;
+    [_layerView.layer addSublayer:blueLayer];
+    
+    [blueLayer display];
+}
+
+- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
+    CGContextSetLineWidth(ctx, 10.0f);
+    CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);
+    CGContextStrokeEllipseInRect(ctx, layer.bounds);
 }
 
 - (void)setupCombinationPicture {
