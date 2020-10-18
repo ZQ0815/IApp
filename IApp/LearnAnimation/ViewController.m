@@ -21,30 +21,31 @@
     //create sublayer
     _layerView = [[UIView alloc] initWithFrame:self.view.frame];
     _layerView.backgroundColor = [UIColor grayColor];
-    //[self learnCustomDrawing];
+    [self learnTranform];
     //[self setupCombinationPicture];
     //[self learnContentsCenter];
     //[self learnShadow];
     //[self learnMask];
-    [self learnGroupAlpha];
+    //[self learnGroupAlpha];
     self.view = _layerView;
 }
 
-- (void)learnCustomDrawing {
+- (void)learnTranform {
+    //create a new transform
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    //scale by 50%
+    transform = CGAffineTransformScale(transform, 0.5, 0.5);
+    //rotate by 30 degrees
+    transform = CGAffineTransformRotate(transform, M_PI / 180.0 * 30.0);
+    //translate by 200 points
+    transform = CGAffineTransformTranslate(transform, 200, 0);
+    
     CALayer *blueLayer = [CALayer layer];
     blueLayer.frame = CGRectMake(50.0f, 100, 100.0f, 100.0f);
     blueLayer.backgroundColor = [UIColor blueColor].CGColor;
-    blueLayer.delegate = self;
-    blueLayer.contentsScale = [UIScreen mainScreen].scale;
     [_layerView.layer addSublayer:blueLayer];
-    
-    [blueLayer display];
-}
+    blueLayer.affineTransform = transform;
 
-- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx {
-    CGContextSetLineWidth(ctx, 10.0f);
-    CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);
-    CGContextStrokeEllipseInRect(ctx, layer.bounds);
 }
 
 - (void)setupCombinationPicture {
@@ -166,5 +167,6 @@
   [button addSubview:label];
   return button;
 }
+
 
 @end
