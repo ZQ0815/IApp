@@ -24,7 +24,9 @@
     //[self learnCustomDrawing];
     //[self setupCombinationPicture];
     //[self learnContentsCenter];
-    [self learnShadow];
+    //[self learnShadow];
+    //[self learnMask];
+    [self learnGroupAlpha];
     self.view = _layerView;
 }
 
@@ -110,6 +112,59 @@
     [layer addSublayer: shawdowLayer];
     
     [_layerView.layer addSublayer: layer];
+}
+
+- (void)learnMask {
+    UIImage *image = [UIImage imageNamed:@"img_1"];
+    
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(50, 100, 200, 200);
+    layer.backgroundColor = [UIColor whiteColor].CGColor;
+    layer.contents = (__bridge id)image.CGImage;
+    layer.contentsGravity = kCAGravityResizeAspect;
+    
+    CALayer *maskLayer = [CALayer layer];
+    maskLayer.frame = CGRectMake(60, 110, 100, 100);
+    maskLayer.cornerRadius = 50.0;
+    maskLayer.backgroundColor = [UIColor colorWithWhite:1 alpha:1].CGColor;
+
+    layer.mask = maskLayer;
+    
+    [_layerView.layer addSublayer: layer];
+}
+
+- (void)learnGroupAlpha {
+    //create opaque button
+    UIButton *button1 = [self customButton];
+    button1.center = CGPointMake(50, 150);
+    [_layerView addSubview:button1];
+    
+    //create translucent button
+    UIButton *button2 = [self customButton];
+    button2.center = CGPointMake(250, 150);
+    button2.alpha = 0.5;
+    [_layerView addSubview:button2];
+    
+    //enable rasterization for the translucent button
+    button2.layer.shouldRasterize = YES;
+    button2.layer.rasterizationScale = [UIScreen mainScreen].scale;
+}
+
+- (UIButton *)customButton
+{
+  //create button
+  CGRect frame = CGRectMake(0, 0, 150, 50);
+  UIButton *button = [[UIButton alloc] initWithFrame:frame];
+  button.backgroundColor = [UIColor whiteColor];
+  button.layer.cornerRadius = 10;
+
+  //add label
+  frame = CGRectMake(20, 10, 110, 30);
+  UILabel *label = [[UILabel alloc] initWithFrame:frame];
+  label.text = @"Hello World";
+  label.textAlignment = NSTextAlignmentCenter;
+  [button addSubview:label];
+  return button;
 }
 
 @end
