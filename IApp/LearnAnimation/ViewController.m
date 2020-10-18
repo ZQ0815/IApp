@@ -20,10 +20,11 @@
     [super viewDidLoad];
     //create sublayer
     _layerView = [[UIView alloc] initWithFrame:self.view.frame];
-    _layerView.backgroundColor = [UIColor whiteColor];
-    [self learnCustomDrawing];
+    _layerView.backgroundColor = [UIColor grayColor];
+    //[self learnCustomDrawing];
     //[self setupCombinationPicture];
     //[self learnContentsCenter];
+    [self learnShadow];
     self.view = _layerView;
 }
 
@@ -83,6 +84,32 @@
     layer.contents = (__bridge id)image.CGImage;
     layer.contentsCenter = CGRectMake(0.5, 0.5, 1, 1);
     [_layerView.layer addSublayer:layer];
+}
+
+-(void)learnShadow {
+    UIImage *image = [UIImage imageNamed:@"img_1"];
+    
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(50, 100, 200, 200);
+    layer.backgroundColor = [UIColor whiteColor].CGColor;
+    layer.cornerRadius = 20.f;
+    
+    CALayer *shawdowLayer = [CALayer layer];
+    shawdowLayer.frame = CGRectMake(50, 50, 50, 50);
+    shawdowLayer.cornerRadius = 25.0;
+    shawdowLayer.contents = (__bridge id)image.CGImage;
+    shawdowLayer.contentsGravity = kCAGravityResizeAspect;
+    //shawdowLayer.masksToBounds = YES; 裁剪后会影响阴影的显示
+    //shawdowLayer.shadowPath 制定任意的阴影形状
+    shawdowLayer.backgroundColor = [UIColor redColor].CGColor;
+    shawdowLayer.shadowOpacity = 1;
+    shawdowLayer.shadowColor = [UIColor blueColor].CGColor;
+    shawdowLayer.shadowOffset = CGSizeMake(10, 10);
+    
+    
+    [layer addSublayer: shawdowLayer];
+    
+    [_layerView.layer addSublayer: layer];
 }
 
 @end
