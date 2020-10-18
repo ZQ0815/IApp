@@ -78,8 +78,8 @@
             filePath = "IApp/LearnAnimation/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-learnContentsCenter"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,9 +94,9 @@
             filePath = "IApp/LearnAnimation/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "-setupCombinationPicture"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-learnTranform"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

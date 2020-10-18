@@ -11,6 +11,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) UIView *layerView;
+@property (nonatomic, strong) CALayer *myLayer;
 
 @end
 
@@ -21,12 +22,14 @@
     //create sublayer
     _layerView = [[UIView alloc] initWithFrame:self.view.frame];
     _layerView.backgroundColor = [UIColor grayColor];
-    [self learnTranform];
+    //[self learnTranform];
+    //[self learnTranformPerspective];
     //[self setupCombinationPicture];
     //[self learnContentsCenter];
     //[self learnShadow];
     //[self learnMask];
     //[self learnGroupAlpha];
+    [self learnTranformTransaction];
     self.view = _layerView;
 }
 
@@ -45,6 +48,59 @@
     blueLayer.backgroundColor = [UIColor blueColor].CGColor;
     [_layerView.layer addSublayer:blueLayer];
     blueLayer.affineTransform = transform;
+}
+
+- (void)learnTranformPerspective {
+    //create a new transform
+    CATransform3D transform = CATransform3DIdentity;
+    //apply perspective
+    transform.m34 = - 1.0 / 10000;
+    //rotate by 45 degrees along the Y axis
+    transform = CATransform3DRotate(transform, M_PI_4, 0, 1, 0);
+    
+    CALayer *blueLayer = [CALayer layer];
+    blueLayer.frame = CGRectMake(50.0f, 100, 100.0f, 100.0f);
+    blueLayer.backgroundColor = [UIColor blueColor].CGColor;
+    blueLayer.transform = transform;
+    [_layerView.layer addSublayer:blueLayer];
+}
+
+- (void)learnTranformTransaction {
+    CGRect layerFram = CGRectMake(50.0f, 100, 100.0f, 100.0f);
+    _myLayer = [CALayer layer];
+    _myLayer.frame = layerFram;
+    _myLayer.backgroundColor = [UIColor blueColor].CGColor;
+    [_layerView.layer addSublayer:_myLayer];
+    
+    CGRect buttonFram = CGRectMake(50.0f, 200, 100.0f, 50.0f);
+    UIButton *changeButton = [UIButton new];
+    changeButton.frame = buttonFram;
+    changeButton.backgroundColor = [UIColor whiteColor];
+    [changeButton setTitle:@"Chage Color" forState:UIControlStateNormal];
+    [changeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [changeButton addTarget:self action:@selector(chageColor) forControlEvents:UIControlEventTouchDown];
+    [_layerView addSubview:changeButton];
+}
+
+- (void)chageColor {
+    //begin a new transaction
+    [CATransaction begin];
+    //set the animation duration to 1 second
+    [CATransaction setAnimationDuration:1.0];
+    //add the spin animation on completion
+    [CATransaction setCompletionBlock:^{
+        //rotate the layer 90 degrees
+        CGAffineTransform transform = self.myLayer.affineTransform;
+        transform = CGAffineTransformRotate(transform, M_PI_2);
+        self.myLayer.affineTransform = transform;
+    }];
+    if (self.myLayer.backgroundColor == [UIColor blueColor].CGColor) {
+        self.myLayer.backgroundColor = [UIColor whiteColor].CGColor;
+        [CATransaction commit];
+    } else {
+        self.myLayer.backgroundColor = [UIColor blueColor].CGColor;
+        [CATransaction commit];
+    }
 
 }
 

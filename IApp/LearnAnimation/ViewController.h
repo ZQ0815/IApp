@@ -10,6 +10,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface UIButton (LLTool)
+
+- (void)addEventBlock:(void(^)(UIButton *sender))block forControlEvents:(UIControlEvents)controlEvents;
+
+@end
+
+@implementation UIButton (LLTool)
+
+- (void)addEventBlock:(void(^)(UIButton *sender))block forControlEvents:(UIControlEvents)controlEvents {
+    
+}
+
+@end
+
 @interface ViewController : UIViewController
 
 @end
