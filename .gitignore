@@ -9,6 +9,15 @@ IApp/Pods/
 /Pods
 Pods/
 
+Pods/*
+.DS_Store
+IApp.xcodeproj/xcuserdata/*
+IApp.xcworkspace/xcuserdata/*
+xcuserdata
+Pods/
+Builds/
+build/
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore

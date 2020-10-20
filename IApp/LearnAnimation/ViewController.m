@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIViewAnimationController.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,8 @@
     //create sublayer
     _layerView = [[UIView alloc] initWithFrame:self.view.frame];
     _layerView.backgroundColor = [UIColor grayColor];
+    
+    [self addNewViewController];
     //[self learnTranform];
     //[self learnTranformPerspective];
     //[self setupCombinationPicture];
@@ -29,8 +32,44 @@
     //[self learnShadow];
     //[self learnMask];
     //[self learnGroupAlpha];
-    [self learnTranformTransaction];
-    self.view = _layerView;
+    //[self learnTranformTransaction];
+    //[self learnPresent];
+    //self.view = _layerView;
+}
+
+- (void)addNewViewController {
+    UIViewAnimationController *newVC = [[UIViewAnimationController alloc] init];
+    //[self presentViewController:newVC animated:YES completion:nil];
+    [self.navigationController pushViewController:newVC animated:YES];
+}
+
+- (void)learnPresent {
+    self.view.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    self.myLayer = [CALayer layer];
+    self.myLayer.frame = CGRectMake(0, 0, 100, 100);
+    self.myLayer.position = CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2);
+    self.myLayer.backgroundColor = [UIColor whiteColor].CGColor;
+    [self.view.layer addSublayer:self.myLayer];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //get the touch point
+    CGPoint point = [[touches anyObject] locationInView:self.view];
+    //check if we've tapped the moving layer
+    if ([self.myLayer.presentationLayer hitTest:point]) {
+        //randomize the layer background color
+        CGFloat red = arc4random() / (CGFloat)INT_MAX;
+        CGFloat green = arc4random() / (CGFloat)INT_MAX;
+        CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+        self.myLayer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+    } else {
+        //otherwise (slowly) move the layer to new position
+        [CATransaction begin];
+        [CATransaction setAnimationDuration:4.0];
+        self.myLayer.position = point;
+        [CATransaction commit];
+    }
 }
 
 - (void)learnTranform {

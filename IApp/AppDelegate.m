@@ -11,7 +11,7 @@
 #import "VideoController/VideoController.h"
 #import "RecommendController/RecommendViewController.h"
 #import "MineController/MineViewController.h"
-#import "LearnAnimation/ViewController.h"
+#import "LearnAnimation/UIViewAnimationController.h"
 #import <objc/runtime.h>
 
 @interface AppDelegate ()
@@ -36,7 +36,7 @@
     //个人信息界面
     MineViewController *mineController = [[MineViewController alloc] init];
     
-    ViewController *animationController = [[ViewController alloc] init];
+    UIViewAnimationController *animationController = [[UIViewAnimationController alloc] init];
     
     //往tabController中添加导航页面
     [tabController setViewControllers:@[animationController, videController, newsController, recommentController, mineController]];

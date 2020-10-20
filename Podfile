@@ -5,4 +5,5 @@ target 'IApp' do
   	pod 'AFNetworking'
 	pod 'SDWebImage'
 	pod 'YYModel'
+	pod 'Masonry'
 end
