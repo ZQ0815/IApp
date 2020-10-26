@@ -1,8 +1,8 @@
 //
-//  MineControllerViewController.h
+//  FrequentUserViewCell.h
 //  IApp
 //
-//  Created by 张强 on 2020/7/25.
+//  Created by 张强 on 2020/10/26.
 //  Copyright © 2020 codeam. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MineViewController : UITableViewController
+@interface FrequentUserViewCell : UITableViewCell
 
 @end
 

@@ -7,7 +7,8 @@
 //
 
 #import "MineViewController.h"
-#import "SetNickNameViewController.h"
+#import "UserInfoViewCell.h"
+#import "FrequentUserController.h"
 #import "UserModel.h"
 
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
@@ -15,9 +16,6 @@
 
 @interface MineViewController ()
 
-@property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) UILabel *showInfoLabel;
-@property (nonatomic, strong) UIButton *finishedButton;
 @property (nonatomic, strong) UserModel *userModel;
 
 @end
@@ -39,50 +37,38 @@
     [self configSubView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.topItem.title = @"个人信息界面";
+}
+
 - (void)configSubView {
-    _contentView = [[UIView alloc] initWithFrame:self.view.frame];
-    _contentView.backgroundColor = [UIColor whiteColor];
-    self.view = _contentView;
-    
-    CGRect viewRect = CGRectMake(50, 200, 20, 20);
-    UIView *testView = [[UIView alloc] initWithFrame:viewRect];
-    testView.layer.backgroundColor = [UIColor blueColor].CGColor;
-    
-    _showInfoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height, self.view.frame.size.width, 30)];
-    _showInfoLabel.numberOfLines = 0;
-    _showInfoLabel.font = [UIFont systemFontOfSize:10];
-    _showInfoLabel.backgroundColor = [UIColor grayColor];
-    _showInfoLabel.text = @"你还有2次修改昵称的机会";
-    [_contentView addSubview:_showInfoLabel];
-    
-    _finishedButton = [[UIButton alloc] initWithFrame:CGRectMake(0, _showInfoLabel.frame.origin.y + 100, 50, 25)];
-    _finishedButton.backgroundColor = [UIColor yellowColor];
-    [_finishedButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_finishedButton setTitle:@"完成" forState:UIControlStateNormal];
-    [_finishedButton addTarget:self action:@selector(didFinishedButton) forControlEvents:UIControlEventTouchUpInside];
-    [_contentView addSubview:_finishedButton];
-    
-    [_contentView addSubview:testView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNickName:) name:@"changeNameByNotification" object:nil];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
 }
 
-- (void)didFinishedButton{
-    SetNickNameViewController *setNickNameVC = [[SetNickNameViewController alloc] init];
-    setNickNameVC.delegate = self;
-    __weak typeof(self) wself = self;
-    setNickNameVC.myblock = ^(NSString * name) {
-        __strong typeof(wself) strongSelf = wself;
-        strongSelf.showInfoLabel.text = name;
-    };
-    [self.navigationController pushViewController:setNickNameVC animated:YES];
+# pragma mark - dataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
 }
 
-- (void)changedController:(SetNickNameViewController *)setNickNameVC didInputed: (NSString *) string {
-    self.showInfoLabel.text = string;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UserInfoViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userinfocell"];
+    if (! cell) {
+        cell = [[UserInfoViewCell alloc] init];
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    return cell;
 }
 
-- (void)changeNickName:(NSNotification *)text {
-    self.showInfoLabel.text = text.userInfo[@"changedName"];
+# pragma mark - delegate
+//@Option UITableViewDelegate中可选的常用方法
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FrequentUserController *frequentUserController = [FrequentUserController new];
+    [self.navigationController pushViewController:frequentUserController animated:YES];
 }
 
 @end

@@ -39,7 +39,9 @@
 		F05D4C1424E2D6AD003FBBE9 /* player.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F05D4C1224E2D6AD003FBBE9 /* player.jpeg */; };
 		F05D4C1524E2D6AD003FBBE9 /* fengmian.png in Resources */ = {isa = PBXBuildFile; fileRef = F05D4C1324E2D6AD003FBBE9 /* fengmian.png */; };
 		F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062370E24CBB97E00F4B29C /* MineViewController.m */; };
-		F062371224CE81F500F4B29C /* SetNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062371124CE81F500F4B29C /* SetNickNameViewController.m */; };
+		F0CB64402546B647009C995E /* UserInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB643F2546B647009C995E /* UserInfoViewCell.m */; };
+		F0CB64462546D4C6009C995E /* FrequentUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB64452546D4C6009C995E /* FrequentUserController.m */; };
+		F0CB644B2546D6EA009C995E /* FrequentUserViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB644A2546D6EA009C995E /* FrequentUserViewCell.m */; };
 		F0EB65F2253941B8005F84DE /* img_1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F0EB65F1253941B8005F84DE /* img_1.jpeg */; };
 /* End PBXBuildFile section */
 
@@ -96,8 +98,12 @@
 		F05D4C1324E2D6AD003FBBE9 /* fengmian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fengmian.png; sourceTree = "<group>"; };
 		F062370D24CBB97E00F4B29C /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F062370E24CBB97E00F4B29C /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		F062371024CE81F500F4B29C /* SetNickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetNickNameViewController.h; sourceTree = "<group>"; };
-		F062371124CE81F500F4B29C /* SetNickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetNickNameViewController.m; sourceTree = "<group>"; };
+		F0CB643E2546B647009C995E /* UserInfoViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewCell.h; sourceTree = "<group>"; };
+		F0CB643F2546B647009C995E /* UserInfoViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewCell.m; sourceTree = "<group>"; };
+		F0CB64442546D4C6009C995E /* FrequentUserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrequentUserController.h; sourceTree = "<group>"; };
+		F0CB64452546D4C6009C995E /* FrequentUserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrequentUserController.m; sourceTree = "<group>"; };
+		F0CB64492546D6EA009C995E /* FrequentUserViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrequentUserViewCell.h; sourceTree = "<group>"; };
+		F0CB644A2546D6EA009C995E /* FrequentUserViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrequentUserViewCell.m; sourceTree = "<group>"; };
 		F0EB65F1253941B8005F84DE /* img_1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img_1.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,13 +287,33 @@
 		F062370C24CBB95D00F4B29C /* MineController */ = {
 			isa = PBXGroup;
 			children = (
+				F0CB64432546D445009C995E /* BaseController */,
+				F0CB643D2546B5A7009C995E /* BaseCell */,
 				F055A2DB24D849000068C0C0 /* Model */,
 				F062370D24CBB97E00F4B29C /* MineViewController.h */,
 				F062370E24CBB97E00F4B29C /* MineViewController.m */,
-				F062371024CE81F500F4B29C /* SetNickNameViewController.h */,
-				F062371124CE81F500F4B29C /* SetNickNameViewController.m */,
 			);
 			path = MineController;
+			sourceTree = "<group>";
+		};
+		F0CB643D2546B5A7009C995E /* BaseCell */ = {
+			isa = PBXGroup;
+			children = (
+				F0CB643E2546B647009C995E /* UserInfoViewCell.h */,
+				F0CB643F2546B647009C995E /* UserInfoViewCell.m */,
+				F0CB64492546D6EA009C995E /* FrequentUserViewCell.h */,
+				F0CB644A2546D6EA009C995E /* FrequentUserViewCell.m */,
+			);
+			path = BaseCell;
+			sourceTree = "<group>";
+		};
+		F0CB64432546D445009C995E /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				F0CB64442546D4C6009C995E /* FrequentUserController.h */,
+				F0CB64452546D4C6009C995E /* FrequentUserController.m */,
+			);
+			path = BaseController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,19 +429,21 @@
 				009219BC24B7517C00B905E5 /* ListItem.m in Sources */,
 				F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */,
 				F05D3A3924E1A1BB003FBBE9 /* GTVideoCoverView.m in Sources */,
+				F0CB644B2546D6EA009C995E /* FrequentUserViewCell.m in Sources */,
 				009219C324B7522A00B905E5 /* DetailViewController.m in Sources */,
 				F05C983525401796003E1441 /* Person.m in Sources */,
+				F0CB64462546D4C6009C995E /* FrequentUserController.m in Sources */,
 				009219A524B74E9600B905E5 /* main.m in Sources */,
 				0092199724B74E9500B905E5 /* AppDelegate.m in Sources */,
 				F05D3A3624E1A0A7003FBBE9 /* GTVideoPlayer.m in Sources */,
 				009219B824B7511B00B905E5 /* DeleteButtonDelegateView.m in Sources */,
 				F05C74ED253EC9B5003E1441 /* UIViewAnimationController.m in Sources */,
 				006CEC7A2538A6BF00F5E0E6 /* ViewController.m in Sources */,
+				F0CB64402546B647009C995E /* UserInfoViewCell.m in Sources */,
 				F055A2DE24D849290068C0C0 /* UserModel.m in Sources */,
 				009219BF24B751C400B905E5 /* LIstLoad.m in Sources */,
 				009219C624B752A700B905E5 /* RecommendViewController.m in Sources */,
 				009219C924B752EF00B905E5 /* VideoController.m in Sources */,
-				F062371224CE81F500F4B29C /* SetNickNameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
