@@ -23,8 +23,7 @@
     //create sublayer
     _layerView = [[UIView alloc] initWithFrame:self.view.frame];
     _layerView.backgroundColor = [UIColor grayColor];
-    
-    [self addNewViewController];
+    //[self addNewViewController];
     //[self learnTranform];
     //[self learnTranformPerspective];
     //[self setupCombinationPicture];
@@ -35,6 +34,15 @@
     //[self learnTranformTransaction];
     //[self learnPresent];
     //self.view = _layerView;
+}
+
+- (void)testBlickArg:(void (^)(Person *person))personBlock {
+    Person *person = [Person new];
+    person.name = @"";
+    if (personBlock) {
+        personBlock(person);
+    }
+    NSLog(@"%@", person.name);
 }
 
 - (void)addNewViewController {

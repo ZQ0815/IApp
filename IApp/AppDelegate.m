@@ -12,6 +12,7 @@
 #import "RecommendController/RecommendViewController.h"
 #import "MineController/MineViewController.h"
 #import "LearnAnimation/UIViewAnimationController.h"
+#import "LearnAnimation/ViewController.h"
 #import <objc/runtime.h>
 
 @interface AppDelegate ()
@@ -37,6 +38,12 @@
     MineViewController *mineController = [[MineViewController alloc] init];
     
     UIViewAnimationController *animationController = [[UIViewAnimationController alloc] init];
+    
+    ViewController *VC = [ViewController new];
+    [VC testBlickArg:^(Person * _Nonnull person) {
+        person.name = @"xxq";
+    }];
+    
     
     //往tabController中添加导航页面
     [tabController setViewControllers:@[animationController, videController, newsController, recommentController, mineController]];

@@ -7,24 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Person.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIButton (LLTool)
-
-- (void)addEventBlock:(void(^)(UIButton *sender))block forControlEvents:(UIControlEvents)controlEvents;
-
-@end
-
-@implementation UIButton (LLTool)
-
-- (void)addEventBlock:(void(^)(UIButton *sender))block forControlEvents:(UIControlEvents)controlEvents {
-    
-}
-
-@end
-
 @interface ViewController : UIViewController
+
+- (void)testBlickArg:(void (^)(Person *person))personBlock;
 
 @end
 

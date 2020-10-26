@@ -33,6 +33,7 @@
 		07AE1D59E9030850602A5FAE /* libPods-IApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C9E2291D539C692DF88C91 /* libPods-IApp.a */; };
 		F055A2DE24D849290068C0C0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F055A2DD24D849290068C0C0 /* UserModel.m */; };
 		F05C74ED253EC9B5003E1441 /* UIViewAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F05C74EC253EC9B5003E1441 /* UIViewAnimationController.m */; };
+		F05C983525401796003E1441 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F05C983425401796003E1441 /* Person.m */; };
 		F05D3A3624E1A0A7003FBBE9 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F05D3A3524E1A0A7003FBBE9 /* GTVideoPlayer.m */; };
 		F05D3A3924E1A1BB003FBBE9 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05D3A3824E1A1BB003FBBE9 /* GTVideoCoverView.m */; };
 		F05D4C1424E2D6AD003FBBE9 /* player.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F05D4C1224E2D6AD003FBBE9 /* player.jpeg */; };
@@ -85,6 +86,8 @@
 		F055A2DD24D849290068C0C0 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		F05C74EB253EC9B5003E1441 /* UIViewAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewAnimationController.h; sourceTree = "<group>"; };
 		F05C74EC253EC9B5003E1441 /* UIViewAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewAnimationController.m; sourceTree = "<group>"; };
+		F05C983325401796003E1441 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		F05C983425401796003E1441 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		F05D3A3424E1A0A7003FBBE9 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
 		F05D3A3524E1A0A7003FBBE9 /* GTVideoPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoPlayer.m; sourceTree = "<group>"; };
 		F05D3A3724E1A1BB003FBBE9 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				006CEC792538A6BF00F5E0E6 /* ViewController.m */,
 				F05C74EB253EC9B5003E1441 /* UIViewAnimationController.h */,
 				F05C74EC253EC9B5003E1441 /* UIViewAnimationController.m */,
+				F05C983325401796003E1441 /* Person.h */,
+				F05C983425401796003E1441 /* Person.m */,
 			);
 			path = LearnAnimation;
 			sourceTree = "<group>";
@@ -399,6 +404,7 @@
 				F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */,
 				F05D3A3924E1A1BB003FBBE9 /* GTVideoCoverView.m in Sources */,
 				009219C324B7522A00B905E5 /* DetailViewController.m in Sources */,
+				F05C983525401796003E1441 /* Person.m in Sources */,
 				009219A524B74E9600B905E5 /* main.m in Sources */,
 				0092199724B74E9500B905E5 /* AppDelegate.m in Sources */,
 				F05D3A3624E1A0A7003FBBE9 /* GTVideoPlayer.m in Sources */,
