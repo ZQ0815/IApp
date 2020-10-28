@@ -8,9 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class FrequentUserViewCell;
+
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol FrequentUserViewCellDelegate <NSObject>
+
+- (void)manageFrequentUserViewCell:(FrequentUserViewCell *)cell deleteWithUserIndex:(NSInteger) index;
+
+@end
+
 @interface FrequentUserViewCell : UITableViewCell
+
+@property(nonatomic, weak) id<FrequentUserViewCellDelegate> delegate;
+
+- (void)bindData:(NSInteger)cellNums;
 
 @end
 

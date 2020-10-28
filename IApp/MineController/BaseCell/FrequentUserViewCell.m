@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UIButton *resetFrequentButton;
 @property (nonatomic, strong) UIView *lineView;
+@property (nonatomic, assign) NSInteger num;
 
 @end
 
@@ -32,6 +33,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.contentView.backgroundColor = [UIColor whiteColor];
+        self.num = 0;
         [self configSubView];
     }
     return self;
@@ -44,26 +46,25 @@
     [self.contentView addSubview:self.resetFrequentButton];
     [self.contentView addSubview:self.lineView];
     
-    [_avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(17);
         make.centerY.mas_equalTo(self.contentView);
         make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
     
-    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.avatarImageView.mas_right).with.offset(12);
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(69);
         make.centerY.mas_equalTo(self.contentView);
-        make.height.mas_equalTo(self.contentView);
     }];
     
-    [_resetFrequentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.resetFrequentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(65, 26));
         make.right.mas_equalTo(self.contentView).offset(-17);
         make.centerY.mas_equalTo(self.contentView);
-        make.size.mas_equalTo(CGSizeMake(65, 26));
     }];
     
-    [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(_nameLabel);
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.nameLabel);
         make.bottom.mas_equalTo(self.contentView);
         make.height.mas_equalTo(1);
         make.right.mas_equalTo(self.contentView);
@@ -82,31 +83,47 @@
 }
 
 - (UILabel *)nameLabel {
-    if (_nameLabel) {
+    if (!_nameLabel) {
         _nameLabel = [UILabel new];
-        _nameLabel.frame = CGRectMake(0, 0, 10, 10);
         _nameLabel.text = @"我真帅";
         [_nameLabel adjustsFontSizeToFitWidth];
-        [_nameLabel sizeToFit];
     }
     return _nameLabel;
 }
 
 - (UIButton *)resetFrequentButton {
-    if (_resetFrequentButton) {
+    if (!_resetFrequentButton) {
         _resetFrequentButton = [UIButton new];
         _resetFrequentButton.frame = CGRectMake(0, 0, 65, 26);
-        _resetFrequentButton.backgroundColor = [UIColor yellowColor];
+        _resetFrequentButton.backgroundColor = [UIColor whiteColor];
+        _resetFrequentButton.layer.borderWidth = 1;
+        _resetFrequentButton.layer.borderColor = [UIColor blueColor].CGColor;
+        _resetFrequentButton.layer.cornerRadius = 5;
+        [_resetFrequentButton setTitle:@"恢复" forState:UIControlStateNormal];
+        [_resetFrequentButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_resetFrequentButton addTarget:self action:@selector(deleteFrequentUser) forControlEvents:UIControlEventTouchDown];
     }
     return _resetFrequentButton;
 }
 
 - (UIView *)lineView {
-    if (_lineView) {
+    if (!_lineView) {
         _lineView = [UIView new];
         _lineView.backgroundColor = [UIColor grayColor];
     }
     return _lineView;
+}
+
+- (void)bindData:(NSInteger)cellNums {
+    _nameLabel.text = [_nameLabel.text stringByAppendingFormat:@"%@%ld",_nameLabel.text,cellNums];
+    self.num = cellNums;
+    NSLog(@"");
+}
+
+- (void)deleteFrequentUser {
+    if ([self.delegate respondsToSelector:@selector(manageFrequentUserViewCell:deleteWithUserIndex:)]) {
+        [self.delegate manageFrequentUserViewCell:self deleteWithUserIndex:self.num];
+    }
 }
 
 - (void)awakeFromNib {

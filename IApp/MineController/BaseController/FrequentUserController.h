@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FrequentUserViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FrequentUserController : UITableViewController
+@interface FrequentUserController : UITableViewController<FrequentUserViewCellDelegate>
 
 @end
 
