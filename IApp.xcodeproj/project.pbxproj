@@ -30,6 +30,7 @@
 		009219DD24B7535100B905E5 /* video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009219D324B7535000B905E5 /* video@2x.png */; };
 		009219DE24B7535100B905E5 /* video_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009219D424B7535000B905E5 /* video_selected@2x.png */; };
 		07AE1D59E9030850602A5FAE /* libPods-IApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C9E2291D539C692DF88C91 /* libPods-IApp.a */; };
+		F03F94E525873D5400B579E6 /* Experiment1.m in Sources */ = {isa = PBXBuildFile; fileRef = F03F94E425873D5400B579E6 /* Experiment1.m */; };
 		F055A2DE24D849290068C0C0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F055A2DD24D849290068C0C0 /* UserModel.m */; };
 		F05D3A3624E1A0A7003FBBE9 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F05D3A3524E1A0A7003FBBE9 /* GTVideoPlayer.m */; };
 		F05D3A3924E1A1BB003FBBE9 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F05D3A3824E1A1BB003FBBE9 /* GTVideoCoverView.m */; };
@@ -76,6 +77,8 @@
 		18C9E2291D539C692DF88C91 /* libPods-IApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D3458539C1D3EF392C0519 /* Pods-IApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IApp.release.xcconfig"; path = "Target Support Files/Pods-IApp/Pods-IApp.release.xcconfig"; sourceTree = "<group>"; };
 		9C17EC9D97CD561F1A0CF9E2 /* Pods-IApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IApp.debug.xcconfig"; path = "Target Support Files/Pods-IApp/Pods-IApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F03F94E325873D5400B579E6 /* Experiment1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Experiment1.h; sourceTree = "<group>"; };
+		F03F94E425873D5400B579E6 /* Experiment1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Experiment1.m; sourceTree = "<group>"; };
 		F055A2DC24D849290068C0C0 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		F055A2DD24D849290068C0C0 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		F05D3A3424E1A0A7003FBBE9 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		0092199424B74E9500B905E5 /* IApp */ = {
 			isa = PBXGroup;
 			children = (
+				F03F94DD25873CEC00B579E6 /* LearnBasicOC */,
 				F062370C24CBB95D00F4B29C /* MineController */,
 				009219CA24B7535000B905E5 /* icons */,
 				009219AD24B74EFB00B905E5 /* RecommendController */,
@@ -241,6 +245,15 @@
 				18C9E2291D539C692DF88C91 /* libPods-IApp.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F03F94DD25873CEC00B579E6 /* LearnBasicOC */ = {
+			isa = PBXGroup;
+			children = (
+				F03F94E325873D5400B579E6 /* Experiment1.h */,
+				F03F94E425873D5400B579E6 /* Experiment1.m */,
+			);
+			path = LearnBasicOC;
 			sourceTree = "<group>";
 		};
 		F055A2DB24D849000068C0C0 /* Model */ = {
@@ -381,6 +394,7 @@
 				0092199724B74E9500B905E5 /* AppDelegate.m in Sources */,
 				F05D3A3624E1A0A7003FBBE9 /* GTVideoPlayer.m in Sources */,
 				009219B824B7511B00B905E5 /* DeleteButtonDelegateView.m in Sources */,
+				F03F94E525873D5400B579E6 /* Experiment1.m in Sources */,
 				F055A2DE24D849290068C0C0 /* UserModel.m in Sources */,
 				009219BF24B751C400B905E5 /* LIstLoad.m in Sources */,
 				009219C624B752A700B905E5 /* RecommendViewController.m in Sources */,
@@ -521,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C8V5R4LG2G;
 				INFOPLIST_FILE = IApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,6 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C8V5R4LG2G;
 				INFOPLIST_FILE = IApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
