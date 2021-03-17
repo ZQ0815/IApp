@@ -37,6 +37,9 @@
 		F05D4C1524E2D6AD003FBBE9 /* fengmian.png in Resources */ = {isa = PBXBuildFile; fileRef = F05D4C1324E2D6AD003FBBE9 /* fengmian.png */; };
 		F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062370E24CBB97E00F4B29C /* MineViewController.m */; };
 		F062371224CE81F500F4B29C /* SetNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F062371124CE81F500F4B29C /* SetNickNameViewController.m */; };
+		F099BF66260056D9005F054E /* LearnUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F099BF65260056D9005F054E /* LearnUIViewController.m */; };
+		F099EB352601A930005F054E /* BNRLine.m in Sources */ = {isa = PBXBuildFile; fileRef = F099EB342601A930005F054E /* BNRLine.m */; };
+		F099EB392601A9B1005F054E /* BNRDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = F099EB382601A9B1005F054E /* BNRDrawView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +91,12 @@
 		F062370E24CBB97E00F4B29C /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F062371024CE81F500F4B29C /* SetNickNameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetNickNameViewController.h; sourceTree = "<group>"; };
 		F062371124CE81F500F4B29C /* SetNickNameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetNickNameViewController.m; sourceTree = "<group>"; };
+		F099BF64260056D9005F054E /* LearnUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LearnUIViewController.h; sourceTree = "<group>"; };
+		F099BF65260056D9005F054E /* LearnUIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LearnUIViewController.m; sourceTree = "<group>"; };
+		F099EB332601A930005F054E /* BNRLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRLine.h; sourceTree = "<group>"; };
+		F099EB342601A930005F054E /* BNRLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRLine.m; sourceTree = "<group>"; };
+		F099EB372601A9B1005F054E /* BNRDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRDrawView.h; sourceTree = "<group>"; };
+		F099EB382601A9B1005F054E /* BNRDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRDrawView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +132,7 @@
 		0092199424B74E9500B905E5 /* IApp */ = {
 			isa = PBXGroup;
 			children = (
+				F099BF63260056B0005F054E /* LearnUIView */,
 				F062370C24CBB95D00F4B29C /* MineController */,
 				009219CA24B7535000B905E5 /* icons */,
 				009219AD24B74EFB00B905E5 /* RecommendController */,
@@ -264,6 +274,19 @@
 			path = MineController;
 			sourceTree = "<group>";
 		};
+		F099BF63260056B0005F054E /* LearnUIView */ = {
+			isa = PBXGroup;
+			children = (
+				F099BF64260056D9005F054E /* LearnUIViewController.h */,
+				F099BF65260056D9005F054E /* LearnUIViewController.m */,
+				F099EB332601A930005F054E /* BNRLine.h */,
+				F099EB342601A930005F054E /* BNRLine.m */,
+				F099EB372601A9B1005F054E /* BNRDrawView.h */,
+				F099EB382601A9B1005F054E /* BNRDrawView.m */,
+			);
+			path = LearnUIView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				009219B524B74FEB00B905E5 /* NormalTableViewCell.m in Sources */,
+				F099BF66260056D9005F054E /* LearnUIViewController.m in Sources */,
 				009219B024B74F4200B905E5 /* NewsViewController.m in Sources */,
 				009219BC24B7517C00B905E5 /* ListItem.m in Sources */,
 				F062370F24CBB97E00F4B29C /* MineViewController.m in Sources */,
@@ -379,9 +403,11 @@
 				009219C324B7522A00B905E5 /* DetailViewController.m in Sources */,
 				009219A524B74E9600B905E5 /* main.m in Sources */,
 				0092199724B74E9500B905E5 /* AppDelegate.m in Sources */,
+				F099EB392601A9B1005F054E /* BNRDrawView.m in Sources */,
 				F05D3A3624E1A0A7003FBBE9 /* GTVideoPlayer.m in Sources */,
 				009219B824B7511B00B905E5 /* DeleteButtonDelegateView.m in Sources */,
 				F055A2DE24D849290068C0C0 /* UserModel.m in Sources */,
+				F099EB352601A930005F054E /* BNRLine.m in Sources */,
 				009219BF24B751C400B905E5 /* LIstLoad.m in Sources */,
 				009219C624B752A700B905E5 /* RecommendViewController.m in Sources */,
 				009219C924B752EF00B905E5 /* VideoController.m in Sources */,
@@ -520,7 +546,8 @@
 			baseConfigurationReference = 9C17EC9D97CD561F1A0CF9E2 /* Pods-IApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = IApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,6 +555,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuaishou.codeam.IApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -537,7 +565,8 @@
 			baseConfigurationReference = 20D3458539C1D3EF392C0519 /* Pods-IApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = IApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,6 +574,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuaishou.codeam.IApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

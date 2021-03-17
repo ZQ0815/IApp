@@ -11,6 +11,7 @@
 #import "VideoController/VideoController.h"
 #import "RecommendController/RecommendViewController.h"
 #import "MineController/MineViewController.h"
+#import "LearnUIViewController.h"
 #import <objc/runtime.h>
 
 @interface AppDelegate ()
@@ -34,9 +35,11 @@
     RecommendViewController *recommentController = [[RecommendViewController alloc] init];
     //个人信息界面
     MineViewController *mineController = [[MineViewController alloc] init];
+    //学习页面
+    LearnUIViewController *learn = [LearnUIViewController new];
     
     //往tabController中添加导航页面
-    [tabController setViewControllers:@[videController, newsController, recommentController, mineController]];
+    [tabController setViewControllers:@[learn, videController, newsController, recommentController, mineController]];
     
     //指定UINavigationController为rootViewController，并且指定viewController为UITabBarController的第一个视图控制器
     UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:tabController];
